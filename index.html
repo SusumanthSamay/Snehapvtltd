@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEHA Security Services Pvt. Ltd.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #002e5d;
+            --secondary: #c60c30;
+            --accent: #ffcc00;
+            --light: #f4f4f4;
+            --dark: #333;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-accent:hover {
+            background: #e6b800;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.sticky {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .logo-tagline {
+            font-size: 12px;
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 3px;
+            font-style: Bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 16px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section - Fixed for Responsiveness */
+        .hero {
+            background: linear-gradient(rgba(0, 46, 93, 0.39), rgba(0, 46, 93, 0.9)), url('https://nfsecurity.ca/wp-content/uploads/2023/04/online-security-guard-training-1200x541.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-style: italic;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .vision-mission {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .vision-mission h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .vision-mission p {
+            font-style: normal;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* Gradient overlay for smooth transition */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 2;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            position: relative;
+            z-index: 4;
+            padding-top: 60px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .director-info {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .director-info h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            flex: 1;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            transition: transform 0.8s ease;
+        }
+
+        .carousel-item {
+            flex: 0 0 25%;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+         
+            color: white;
+        }
+
+        .carousel-caption h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-caption p {
+            font-size: 20px;
+            max-width: 80%;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            font-size: 24px;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-control.prev {
+            left: 20px;
+        }
+
+        .carousel-control.next {
+            right: 20px;
+        }
+
+        /*Services*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #002e5d;
+            --secondary: #c60c30;
+            --accent: #ffcc00;
+            --light: #f4f4f4;
+            --dark: #333;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 18px;
+        }
+        
+        /* Security Services Section */
+        .services {
+            background-color: white;
+           
+            box-shadow: 0 10px 30px rgba(0, 46, 93, 0.1);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+           
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            border: 1px solid #e0e0e0;
+            transform: translateY(0);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
+        }
+        
+        .service-icon {
+            height: 150px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-icon i {
+            transition: var(--transition);
+            z-index: 2;
+        }
+        
+        .service-card:hover .service-icon i {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+            top: -50%;
+            left: -50%;
+            transform: rotate(45deg);
+            transition: var(--transition);
+            opacity: 0;
+        }
+        
+        .service-card:hover .service-icon::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(0, 0);
+            animation: shine 1.5s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(45deg) translate(-100%, -100%); }
+            100% { transform: rotate(45deg) translate(100%, 100%); }
+        }
+        
+        .service-content {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-content h3 {
+            color: var(--secondary);
+        }
+        
+        .service-card:hover .service-content h3::after {
+            background: var(--secondary);
+            width: 80px;
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .service-features {
+            text-align: left;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 46, 93, 0.03);
+            border-radius: 8px;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+            }
+            
+            .service-icon {
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .section-title p {
+                font-size: 16px;
+            }
+            
+            .services {
+                padding: 40px 0;
+            }
+            
+            .service-icon {
+                height: 100px;
+                font-size: 50px;
+            }
+            
+            .service-content {
+                padding: 20px;
+            }
+            
+            .service-content h3 {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 24px;
+            }
+            
+            .section-title::after {
+                width: 70px;
+                height: 3px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-card {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+        
+        /* Decorative elements */
+        .security-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .security-badge i {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Training Section */
+        .training {
+            background-color: #f8f9fa;
+        }
+
+        .infrastructure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .facility-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .facility-icon {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .facility-card:hover .facility-icon {
+            color: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .facility-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Model Section */
+        .model {
+            background: var(--primary);
+            color: white;
+        }
+
+        .model-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .model-title h2 {
+            color: white;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .model-title p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .model-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .model-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .model-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .model-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--accent);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 40px;
+            font-weight: 800;
+            color: rgba(0, 46, 93, 0.1);
+        }
+
+        .step h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Statistics Section */
+        .stats {
+            background: linear-gradient(to right, var(--primary), #004e9d);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 50px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .stat-text {
+            font-size: 18px;
+        }
+
+        /* Client Logos Section */
+        .client-logos {
+            background-color: white;
+            padding: 60px 0;
+        }
+
+        .logos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .logo-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 120px;
+            width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Clients Testimonials - Fixed for Responsiveness */
+        .clients {
+            background-color: white;
+        }
+
+        .clients-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px; /* Minimum height for desktop */
+        }
+
+        .client-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            top: 0;
+            left: 0;
+        }
+
+        .client-slide.active {
+            opacity: 1;
+            position: relative; /* Make active slide relative for proper height */
+        }
+
+        .client-logo {
+            width: 120px;
+            height: 120px;
+            background: #f4f4f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 40px;
+            color: #002e5d;
+        }
+
+        .client-text {
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-style: italic;
+            font-size: 18px;
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: #002e5d;
+        }
+
+        .client-position {
+            color: #c60c30;
+        }
+
+        .client-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .client-dot {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .client-dot.active {
+            background: #c60c30;
+            transform: scale(1.2);
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .clients-container {
+                height: auto !important; /* Override any height */
+                min-height: 400px; /* Increased for mobile */
+            }
+            
+            .client-slide {
+                position: static; /* Remove absolute positioning */
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+                transition: all 0.5s ease;
+                padding: 10px;
+            }
+            
+            .client-slide.active {
+                opacity: 1;
+                height: auto;
+                position: static;
+                padding: 20px;
+            }
+            
+            .client-logo {
+                width: 80px;
+                height: 80px;
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+            
+            .client-text {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .clients-container {
+                min-height: 450px; /* More space for smallest screens */
+            }
+            
+            .client-text {
+                font-size: 14px;
+            }
+            
+            .client-name, .client-position {
+                font-size: 14px;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 15px;
+            min-width: 40px;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .carousel-container {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+                margin-left: 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .logo-main {
+                font-size: 16px;
+            }
+
+            .logo-tagline {
+                font-size: 10px;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .vision-mission {
+                padding: 20px;
+            }
+
+            .vision-mission h3 {
+                font-size: 20px;
+            }
+
+            .vision-mission p {
+                font-size: 14px;
+            }
+
+            .carousel-container {
+                height: 350px;
+            }
+
+            .carousel-caption h3 {
+                font-size: 24px;
+            }
+
+            .carousel-caption p {
+                font-size: 16px;
+            }
+
+            .carousel-control {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .logos-container {
+                gap: 20px;
+            }
+
+            .logo-item {
+                width: 150px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logos-container {
+                gap: 15px;
+            }
+
+            .logo-item {
+                width: 130px;
+                height: 90px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-item {
+                width: 100px;
+                height: 80px;
+                padding: 10px;
+            }
+
+            .carousel-container {
+                height: 300px;
+            }
+
+            .carousel-caption h3 {
+                font-size: 20px;
+            }
+
+            .carousel-caption p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 100vh;
+                padding: 80px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+
+            .section-title h2 {
+                font-size: 24px;
+            }
+
+            .section-title::after {
+                width: 70px;
+                height: 3px;
+            }
+
+            .logo-img {
+                height: 50px;
+            }
+
+            .logo-main {
+                font-size: 14px;
+            }
+
+            .model-card,
+            .facility-card,
+            .step {
+                padding: 20px;
+            }
+
+            .model-card h3,
+            .facility-card h3,
+            .step h3 {
+                font-size: 18px;
+            }
+
+            .stat-number {
+                font-size: 40px;
+            }
+
+            .stat-text {
+                font-size: 16px;
+            }
+
+            .hero::after {
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" class="logo">
+                    <img src="images/company logo (1).png"
+                        alt="SNEHA Security Logo" class="logo-img">
+                    <div class="logo-text">
+                        <div class="logo-main">Shiloh Sneha Security Pvt Ltd., </div>
+                        <div class="logo-tagline">For Your Safety and Security</div>
+                    </div>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#training">Training</a></li>
+                    <li><a href="#model">Model</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - Fixed for responsiveness -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering Youth Through Security Training</h1>
+                <p style="color: #eaf700;">Creating a safer society with skill development and employment opportunities</p>
+                <a href="#contact" class="btn">Join Our Program</a>
+
+                <div class="vision-mission">
+                    <h3>Our Vision</h3>
+                    <p>"To create a safer and more secure society by empowering the youth through skill development,
+                        security training, and meaningful employment opportunities in the security and Surveillance
+                        sectors."</p>
+
+                    <h3>Our Mission</h3>
+                    <p>"Our mission is to bridge the gap between unemployment and career growth by providing
+                        comprehensive security training, skill development, and certification to young individuals,
+                        enabling them to secure stable jobs in security services, Hospitals, Shopping Malls and PSO's to
+                        Individual Citizens. Contributing to national safety and community well-being."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Three Decades of Expertise in Security Services</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Creating Opportunities in Security Sector</h3>
+                    <p>SNEHA Security Services Pvt. Ltd. brings three decades of expertise in security management,
+                        providing comprehensive training and employment solutions for youth across Andhra Pradesh.</p>
+                    <p>Our project aims to identify unemployed youth, provide them with industry-standard security
+                        training, enhance their technical and practical skills, certify them upon completion, and
+                        facilitate job placements in various security-related fields.</p>
+                    <p>We are committed to creating a sustainable pipeline for job-ready candidates in high-demand
+                        security roles while enhancing community safety and supporting youth employment.</p>
+
+                    <div class="director-info">
+                        <h4>WHY US :</h4>
+                        <p><strong>Industry Experience</strong> </p>
+                        <div style="color: rgb(195, 5, 5); ">
+                        <p>🔐 24/7 Professional Services</p>
+                        <p>Three decades of security expertise and proven track record</p>
+                        </div>
+                        <p><Strong>Employment Focus</Strong>
+                        <p style="color: #c60c30;">100% placement assistance with leading organizations.</p>
+                        
+                    </div>
+
+                    <a href="#model" class="btn">Our Model</a>
+                </div>
+                
+                <!-- Carousel Section -->
+                <div class="carousel-container">
+                    <div class="carousel" id="aboutCarousel">
+                        <div class="carousel-inner" id="carouselInner">
+                            <div class="carousel-item active">
+                                <img src="images/institute.jpg" alt="Security Training Institute">
+                                <div class="carousel-caption">
+                                    <h3>Empower today, Employ tomorrow</h3>
+                                    <p>3 Decades of Security Excellence</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/classroom.png" alt="Classroom Training">
+                                <div class="carousel-caption">
+                                    <h3>Empower today, Employ tomorrow</h3>
+                                    <p>3 Decades of Security Excellence</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/training.jpeg" alt="Academy Campus">
+                                <div class="carousel-caption">
+                                    <h3>Empower today, Employ tomorrow</h3>
+                                    <p>3 Decades of Security Excellence</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/practical training.png" alt="Practical Training">
+                                <div class="carousel-caption">
+                                    <h3>Empower today, Employ tomorrow</h3>
+                                    <p>3 Decades of Security Excellence</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-control prev" onclick="moveSlide(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="carousel-control next" onclick="moveSlide(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="carousel-indicators" id="carouselIndicators">
+                            <div class="indicator active" data-index="0"></div>
+                            <div class="indicator" data-index="1"></div>
+                            <div class="indicator" data-index="2"></div>
+                            <div class="indicator" data-index="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Security Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Security Services</h2>
+                <p>Comprehensive solutions for all your safety and security needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="security-badge">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Security Training</h3>
+                        <p>Comprehensive training programs for aspiring security professionals with industry-recognized certification.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Basic & advanced security courses</li>
+                                <li>Physical security techniques</li>
+                                <li>Surveillance operations</li>
+                                <li>Emergency response training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="security-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Skill Development</h3>
+                        <p>Specialized programs to enhance technical and soft skills for career advancement in security sector.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Communication skills training</li>
+                                <li>Technical equipment operation</li>
+                                <li>First aid & crisis management</li>
+                                <li>Leadership development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="security-badge">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Job Placement</h3>
+                        <p>Connecting trained professionals with top employers in security, healthcare, retail, and corporate sectors.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Corporate security positions</li>
+                                <li>Hospital security staff</li>
+                                <li>Retail security specialists</li>
+                                <li>Personal security officers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="security-badge">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Security Manpower</h3>
+                        <p>Providing trained and certified security personnel for various industries and institutions.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>24/7 security personnel</li>
+                                <li>Event security specialists</li>
+                                <li>Residential security teams</li>
+                                <li>Corporate facility guards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="security-badge">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Corporate Security</h3>
+                        <p>Customized security solutions for businesses, offices, and corporate facilities.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Access control systems</li>
+                                <li>Security assessments</li>
+                                <li>Risk management planning</li>
+                                <li>Executive protection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="security-badge">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Personal Security</h3>
+                        <p>Professional personal security officers for executives, VIPs, and high-profile individuals.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li>Close protection officers</li>
+                                <li>Residential security</li>
+                                <li>Travel security details</li>
+                                <li>Threat assessment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Training Infrastructure -->
+    <section class="section training" id="training">
+        <div class="container">
+            <div class="section-title">
+                <h2>Training Infrastructure</h2>
+                <p>State-of-the-art facilities for comprehensive training</p>
+            </div>
+
+            <div class="infrastructure-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Modern Classrooms</h3>
+                    <p>Equipped with latest teaching aids and technology</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Well-equipped Labs</h3>
+                    <p>Practical training with modern security equipment</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Libraries</h3>
+                    <p>Resource centers with extensive security literature</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Auditoriums</h3>
+                    <p>For seminars, workshops, and large gatherings</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Sports Facilities</h3>
+                    <p>For physical training and fitness development</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Technology Infrastructure</h3>
+                    <p>Advanced security systems and surveillance training</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Section -->
+    <section class="section model" id="model">
+        <div class="container">
+            <div class="model-title">
+                <h2>The SNEHA Model</h2>
+                <p>Our comprehensive approach to youth empowerment and security training</p>
+            </div>
+
+            <div class="model-grid">
+                <div class="model-card">
+                    <h3>Human Resources</h3>
+                    <p>Identifying and recruiting talented youth for security sector opportunities</p>
+                </div>
+
+                <div class="model-card">
+                    <h3>Skilled Training & Development</h3>
+                    <p>Comprehensive programs to develop technical and practical security skills</p>
+                </div>
+
+                <div class="model-card">
+                    <h3>Manpower Security Supplies</h3>
+                    <p>Providing trained security personnel to industries and individuals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Process -->
+    <section class="section process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Process</h2>
+                <p>From identification to career growth</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Identification of Unemployed Youth</h3>
+                    <p>Targeting both uneducated and graduate populations across Andhra Pradesh</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Security Training Programs Initiated</h3>
+                    <p>Tailored programs based on educational background and aptitude</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Skill Development</h3>
+                    <p>Technical and practical training modules for comprehensive skill building</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Certification Upon Completion</h3>
+                    <p>Industry-recognized certification for enhanced employability</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Job Placement in Security Jobs</h3>
+                    <p>Facilitating placements in private security, hospitals, malls, and PSOs</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Follow-Up Support & Career Growth</h3>
+                    <p>Continuous support for career advancement in security sector</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Goals & Impact</h2>
+                <p>Empowering youth across Andhra Pradesh</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">18.48L</div>
+                    <div class="stat-text">Unemployed Youth in Andhra Pradesh</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">10%</div>
+                    <div class="stat-text">Target to Empower</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">1.8L</div>
+                    <div class="stat-text">Youth to be Empowered</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-text">Placement Target</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Client Logos Section -->
+    <section class="section client-logos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Valued Clients</h2>
+                <p>Trusted by leading organizations across industries</p>
+            </div>
+
+            <div class="logos-container">
+                <div class="logo-item">
+                    <img src="partners/apollo.jpeg" alt="Apollo Hospitals">
+                </div>
+                <div class="logo-item">
+                    <img src="partners/big  bazar.png" alt="Big Bazaar">
+                </div>
+                <div class="logo-item">
+                    <img src="partners/gvk.png" alt="GVK Mall">
+                </div>
+                <div class="logo-item">
+                    <img src="partners/tech.jpeg" alt="Tech Mahindra">
+                </div>
+                <div class="logo-item">
+                    <img src="partners/andhra.png" alt="Andhra Bank">
+                </div>
+                <div class="logo-item">
+                    <img src="partners/dlf.png" alt="DLF Residency">
+                </div>
+                <div class="logo-item">
+                    <img src="partners/amara.jpeg" alt="Amara Raja">
+                </div>
+                <div class="logo-item">
+                    <img src="partners/vit.jpeg"
+                        alt="VIT University">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Testimonials - Fixed for Responsiveness -->
+    <section class="section clients" id="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about our services</p>
+            </div>
+
+            <div class="clients-container">
+                <div class="client-slide active">
+                    <div class="client-logo">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <p class="client-text">"SNEHA Security has provided us with highly trained personnel who demonstrate
+                        professionalism and dedication. Their training program produces exceptional security staff."</p>
+                    <p class="client-name">Dr. Rajesh Kumar</p>
+                    <p class="client-position">Hospital Administrator, Guntur</p>
+                </div>
+
+                <div class="client-slide">
+                    <div class="client-logo">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <p class="client-text">"We've partnered with SNEHA for mall security services for over 5 years.
+                        Their staff is well-trained, courteous, and highly effective at maintaining a safe environment."
+                    </p>
+                    <p class="client-name">Priya Sharma</p>
+                    <p class="client-position">Mall Manager, Vijayawada</p>
+                </div>
+
+                <div class="client-slide">
+                    <div class="client-logo">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <p class="client-text">"The customized security solutions from SNEHA have significantly improved our
+                        facility's safety. Their personnel are skilled in both physical security and technology systems."</p>
+                    <p class="client-name">Vikram Singh</p>
+                    <p class="client-position">Factory Owner, Visakhapatnam</p>
+                </div>
+            </div>
+
+            <div class="client-nav">
+                <div class="client-dot active" data-index="0"></div>
+                <div class="client-dot" data-index="1"></div>
+                <div class="client-dot" data-index="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for training and security solutions</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Director</h3>
+                            <p>SNEHA LATHA ASHOK MATHANGI</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>96186 86007</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>snehamaggie07@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Address</h3>
+                            <p>Fiat No. 411, Yaganti Strings, Kalyani Nagar 2nd Lane, Layola Nagar, Guntur, AP - 522005
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>CIN</h3>
+                            <p>U80100AP2025PTC118703</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>SNEHA Security</h3>
+                    <p>Creating a safer and more secure society by empowering youth through skill development and
+                        meaningful employment in security sectors.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#training">Training</a></li>
+                        <li><a href="#model">Our Model</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Security Training</a></li>
+                        <li><a href="#">Skill Development</a></li>
+                        <li><a href="#">Job Placement</a></li>
+                        <li><a href="#">Security Manpower</a></li>
+                        <li><a href="#">Corporate Security</a></li>
+                        <li><a href="#">Personal Security</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> 96186 86007</li>
+                        <li><i class="fas fa-envelope"></i> snehamaggie07@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Guntur, AP - 522005</li>
+                        <li><i class="fas fa-building"></i> CIN: U80100AP2025PTC118703</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 SNEHA Security Services Pvt. Ltd. | CIN: U80100AP2025PTC118703 | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Client testimonials slider - Fixed for responsiveness
+        const slides = document.querySelectorAll('.client-slide');
+        const dots = document.querySelectorAll('.client-dot');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+            
+            // On mobile, adjust container height to fit content
+            if (window.innerWidth <= 768) {
+                const activeSlide = slides[index];
+                const container = document.querySelector('.clients-container');
+                container.style.height = activeSlide.scrollHeight + 'px';
+            }
+        }
+
+        // Add click events to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            let nextSlide = (currentSlide + 1) % slides.length;
+            showSlide(nextSlide);
+        }, 5000);
+
+        // Initialize height on page load
+        window.addEventListener('load', function() {
+            if (window.innerWidth <= 768) {
+                const activeSlide = document.querySelector('.client-slide.active');
+                const container = document.querySelector('.clients-container');
+                if (activeSlide && container) {
+                    container.style.height = activeSlide.scrollHeight + 'px';
+                }
+            }
+        });
+        
+        // Update height on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                const activeSlide = document.querySelector('.client-slide.active');
+                const container = document.querySelector('.clients-container');
+                if (activeSlide && container) {
+                    container.style.height = activeSlide.scrollHeight + 'px';
+                }
+            } else {
+                const container = document.querySelector('.clients-container');
+                if (container) {
+                    container.style.height = '';
+                }
+            }
+        });
+        
+        // Add hover effect to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Sticky header effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            contactForm.reset();
+        });
+        
+        // Carousel Functionality
+        let currentIndex = 0;
+        const carouselInner = document.getElementById('carouselInner');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        function moveSlide(direction) {
+            const items = document.querySelectorAll('.carousel-item');
+            const itemCount = items.length;
+            
+            currentIndex = (currentIndex + direction + itemCount) % itemCount;
+            carouselInner.style.transform = `translateX(-${currentIndex * 25}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Auto slide every 4 seconds
+        setInterval(() => {
+            moveSlide(1);
+        }, 4000);
+        
+        // Add click events to indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                carouselInner.style.transform = `translateX(-${currentIndex * 25}%)`;
+                
+                // Update indicators
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle('active', i === currentIndex);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
